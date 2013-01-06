@@ -1,0 +1,16 @@
+{
+  "name": "simple-stack",
+  "version": "0.0.1",
+  "description": "Default stack for a simple API",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_ENV=test mocha -R spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CamShaft/simple-stack.git"
+  },
+  "author": "Cameron Bytheway <cameron@nujii.com>",
+  "license": "MIT",
+  "readmeFilename": "README.md"
+}
