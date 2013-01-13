@@ -10,9 +10,14 @@ module.exports = function(config) {
   // Add some default middleware
   pack.use(express.logger(config.logger || 'dev'));
   pack.use(function fqdn(req, res, next) {
+    // TODO 'X-Forwarded-Host'
+    // TODO 'X-Forwarded-Port'
+    // TODO 'X-Forwarded-Path'
+    // TODO 'X-Forwarded-Is-SSL'
     req.fqdn = req.protocol+"://"+req.headers.host;
     next();
   });
+  pack.use(express.compress());
   pack.use(express.bodyParser());
   pack.use(express.methodOverride());
 
