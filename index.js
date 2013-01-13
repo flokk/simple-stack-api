@@ -17,7 +17,10 @@ module.exports = function(config) {
     req.fqdn = req.protocol+"://"+req.headers.host;
     next();
   });
-  pack.use(express.compress());
+  var compressFun = express.compress();
+  pack.use(function compress(req, res, next) {
+    compressFun(req, res, next);
+  });
   pack.use(express.bodyParser());
   pack.use(express.methodOverride());
 
