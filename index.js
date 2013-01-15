@@ -42,15 +42,15 @@ module.exports = function(config) {
   });
   pack.use(function errorHandler(err, req, res, next) {
     if(process.env.NODE_ENV !== "test" && config.logErrors !== false) console.error(err.stack);
-
-    res.status(err.code || 500);
+    var code = err.code || 500;
+    res.status(code);
     var response = {
       _links: {
         self: {href: req.base+req.url}
       },
       _error: {
         title: err.defaultMessage || "Server Error",
-        code: err.code,
+        code: code,
         message: err.message
       }
     };
