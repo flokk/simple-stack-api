@@ -18,6 +18,8 @@ module.exports = function(config) {
   if(process.env.NODE_ENV !== "test") pack.use(express.logger(config.logger || 'dev'));
   // Base URL
   pack.use(base());
+  // Prevent not found errors
+  pack.use(express.favicon());
   // CORS Headers
   pack.use(cors(config.cors || null));
   // GZip
@@ -41,8 +43,11 @@ module.exports = function(config) {
     next(err);
   });
   pack.use(function errorHandler(err, req, res, next) {
-    if(process.env.NODE_ENV !== "test" && config.logErrors !== false) console.error(err.stack);
     var code = err.code || 500;
+    if(process.env.NODE_ENV !== "test"
+        && config.logErrors !== false
+        && code > 499) console.error(err.stack);
+    
     res.status(code);
     var response = {
       _links: {
