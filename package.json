@@ -1,6 +1,6 @@
 {
-  "name": "simple-stack",
-  "version": "0.1.0",
+  "name": "simple-stack-api",
+  "version": "0.2.0",
   "description": "Default stack for a simple API",
   "main": "index.js",
   "scripts": {
@@ -8,15 +8,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/CamShaft/simple-stack.git"
+    "url": "https://github.com/flokk/simple-stack-api.git"
   },
   "author": "Cameron Bytheway <cameron@nujii.com>",
   "license": "MIT",
   "readmeFilename": "README.md",
   "dependencies": {
-    "pack-n-stack": "~0.0.1",
     "connect-xcors": "~0.5.2",
-    "express": "~3.0.6",
-    "connect-base": "0.0.1"
+    "simple-stack-common": "~0.1.0"
   }
 }
