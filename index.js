@@ -2,7 +2,8 @@
 /**
  * Module dependencies.
  */
-var stack = require("simple-stack-common");
+var stack = require("simple-stack-common")
+  , cors = require("connect-xcors");
 
 /**
  * Expose the stack
